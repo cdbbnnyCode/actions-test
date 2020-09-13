@@ -5,9 +5,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: |
+    - name: Run
+      run: |
         ls -l
-        git clone https://github.com/cdbbnnyCode/actions-test
-        cd actions-test
         chmod +x deploy.sh
         ./deploy.sh
+      with:
+        branch: master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
