@@ -8,9 +8,9 @@ jobs:
     - name: Run
       run: |
         ls -l
+        git clone --depth=1 https://github.com/cdbbnnyCode/actions-test
+        cd actions-test
         chmod +x deploy.sh
         ./deploy.sh
-      with:
-        branch: master
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
